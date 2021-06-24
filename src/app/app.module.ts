@@ -9,6 +9,7 @@ import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from './service/messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AsyncPipe } from '../../node_modules/@angular/common';
     AngularFireAuthModule,
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [MessagingService,AsyncPipe],
   bootstrap: [AppComponent]
